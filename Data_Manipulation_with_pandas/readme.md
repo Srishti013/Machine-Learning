@@ -57,9 +57,28 @@
     - .isna().sum() ---> sum of missing values in each column
     - .dropna() ---> drops rows with misssing values
     - .fillna(0) ---> replaces missing values with 0
+
 #### Creating Dataframes
     - pd.DataFrame(list_of_dictionaries)
     - pd.DataFrame(dictionary_of_lists)
 ### Reading and Writing in CSV's
     - .read_csv("filename")
     - updated_file.to_csv("name_of_updated_file.csv")
+### Merging tables/Datasets
+    * Inner Join
+    - dataset1.merge(dataset2,on="common_colname",suffixes=('_x','_y'))
+    - dataset1.merge(dataset2, on=['col1','col2','col3']) \
+				.merge(dataset3, on='col4')
+    * Left Join
+    - dataset1.merge(dataset2,on="common_colname",suffixes=('_x','_y'),how="left")
+    
+    * Right Join
+    - dataset1.merge(dataset2,on="common_colname",suffixes=('_x','_y'),how="right")
+    
+    * Outer Join
+    - dataset1.merge(dataset2,on="common_colname",suffixes=('_x','_y'),how="outer")
+    
+    * Using the above techniques tables can also be merged to themselves if there is 
+      some sequel, heirarchical or graph data
+    * Whenever using left index or right index as merging columns we have to set 
+      left_index=true or right_index= True respectively
