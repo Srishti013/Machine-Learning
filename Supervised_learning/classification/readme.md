@@ -5,4 +5,4 @@
 * Naivee Bayes
 * Decesion Trees 
 * Random Forest
-* KNN Classifier
+* [KNN Classifier](/Machine-Learning/Supervised_learning/classification/knn.py)
