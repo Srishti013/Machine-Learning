@@ -137,4 +137,77 @@ print(repr(arr**0.5))
 
 ```python
 
-print( np.random.randint(3,high=6)) # --> Prints a random number in the range [3,6)
+print( np.random.randint(3,high=6,size=2)) # --> Prints array with numbers in the range [3,6) of size 2
+
+# np.random.seed() --> is used to get same typr of random numbers when the seed is same
+
+# np.random.shuffle()
+arr = np.array([1,2,3,4])
+print(np.random.shuffle(arr)) --> shuffles the array element, example output: [2,3,4,1]
+
+# np.random.normal(loc=x,scale=y)
+# here loc and scale represent mean and standard deviation of a normal distribution
+
+# np.random.uniform()
+# Used to get numbers from uniform distribution
+
+```
+
+
+#### Indexing
+
+```python
+
+arr = np.array([1,2,3,4])
+
+print(arr[0])   # prints the first element --> 1
+print(arr[:2])  # prints all elements from starting till at 2 --> [1,2]
+print(arr[-2:])  # prints all elements from index -2 till end --> [3,4]
+
+
+arr = np.array([[-2, -1, -3],
+                [4, 5, -6],
+                [-3, 9, 1]])
+print(np.argmin(arr[0]))    # Prints index of the minimum element in the first row --> 2
+print(np.argmax(arr[2]))    # Prints index of the maximum element in the third row --> 1
+print(np.argmin(arr,axis=0))  # Prints array of indices of minimum elements in each column  --> [2,0,1]
+print(np.argmin(arr,axis=1))  # Prints array of indices of minimum elements in each row  --> [2,2,0]
+
+```
+
+#### Filtering
+
+```python
+
+arr = np.array([0, 3, 5, 3, 1])
+print(np.where(arr == 3))  # Prints array of indices where given condition is true --> [1,3]
+
+# np.where() has three arguments : 1) main array or condition , 2) values to replace true values, 3) values to replace false values
+
+positives = np.array([[1, 2], [3, 4]])
+negatives = np.array([[-2, -5], [-1, -8]])
+np_filter = positives > 2
+print(np.where(np_filter, positives, negatives)) # [[-2,-5],[3,4]]
+
+# np.any() works like the OR operation and np.all() works like the and operation
+
+arr = np.array([1,2,3,0])
+print(np.any(arr==0)) # True
+print(np.all(arr==0)) # False
+
+```
+
+#### Statistical Functions
+
+```python
+
+arr.min() # Prints minimum element in arr
+arr.max() # Prints maximum element in arr
+np.mean(arr)  # Prints mean of elements in arr
+np.median(arr)  # Prints median of elements in arr
+np.var(arr)  # Prints variance of elements in arr
+np.sum(arr)  # prints sum of elements of arr
+np.cumsum(arr)  # prints array of cummalative sum of elements of arr
+np.concatenate([arr1,arr2])  # Concatenates arr1 and arr2
+
+```
